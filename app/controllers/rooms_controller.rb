@@ -1,11 +1,23 @@
 class RoomsController < ApplicationController
   def index
   end
-  
+  def own
+    @rooms = Room.where(user_id: current_user.id)
+  end
   def new
+    @user = User.find(current_user.id)
+    @room = Room.new
   end
 
   def create
+    @user = User.find(current_user.id)
+    @room =  Room.new(params.require(:room).permit(:name,:introduction,:price,:user_id,:address))
+    puts @room
+    if @room.save
+      redirect_to "/rooms/own"
+    else
+      render "rooms/new"
+    end
   end
 
   def show
@@ -18,5 +30,9 @@ class RoomsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def room_params
+
   end
 end
