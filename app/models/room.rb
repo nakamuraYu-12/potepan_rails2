@@ -3,6 +3,6 @@ class Room < ApplicationRecord
   validates :introduction, presence: true
   validates :price, presence: true
   validates :address, presence: true
-
+  has_many :reservation
   belongs_to :user
 end
