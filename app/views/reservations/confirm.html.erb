@@ -1,17 +1,33 @@
-<h4>予約の確認</h4>
-<thead>
-  <tr>
-    <th>チェックイン</th>
-    <th>チェックアウト</th>
-    <th>日数</th>
-    <th>人数</th>
-    <th>お支払い金額<th>
-  </tr>
-</thead>
+<div>
+  <h4>予約確認</h4>
+  <dl>
+	<dt>チェックイン</dt>
+	<dd><%= @reservation.checkin %></dd>
+	<dt>チェックアウト</dt>
+	<dd><%= @reservation.checkout %></dd>
+	<dt>人数</dt>
+	<dd><%= @reservation.numberpeople %></dd>
+  <dt>日数</dt>
+  <dd><%= @days %></dd>
+  <dt>価格</dt>
+  <dd><%= @cost %></dd>
+</dl>
+</div>
+<%= form_for @reservation, url: back_reservation_path do |f| %>
+	<%= f.hidden_field :checkin %>
+	<%= f.hidden_field :checkout %>
+	<%= f.hidden_field :numberpeople %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :room_id %>
+	<%= f.submit '入力画面に戻る' %>
+<% end %>
 
-<tbody>
-    <tr>
-      <td><%= @reservation.checkin %></td>
-      <td><%= @reservation.checkout %></td>
-    </tr>
-</tbody>
+<%= form_for @reservation, method: :post,url: reservations_path do |f|%>
+  <%= f.hidden_field :checkin %>
+	<%= f.hidden_field :checkout %>
+	<%= f.hidden_field :numberpeople %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :room_id %>
+	<%= f.submit '送信する' %>
+<% end %>
+

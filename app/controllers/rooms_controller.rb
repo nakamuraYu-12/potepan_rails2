@@ -13,7 +13,6 @@ class RoomsController < ApplicationController
   def create
     @user = User.find(current_user.id)
     @room =  Room.new(params.require(:room).permit(:name,:introduction,:price,:user_id,:address))
-    puts @room
     if @room.save
       redirect_to "/rooms/own"
     else
