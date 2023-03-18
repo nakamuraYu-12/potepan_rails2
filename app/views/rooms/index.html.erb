@@ -15,7 +15,7 @@
         <p class="room-name"><%= room.name %></p>
         <p class="room-address"><%= room.address %></p>
         <p class="room-introduction"><%= room.introduction %></p>
-        <p class="room-price"><%= number_to_currency(room.price, :unit => "￥",:precision => 0) %>~</p>
+        <p class="room-price">¥<%= number_to_currency(room.price, precision: 0) %>~</p>
         <%= link_to "詳細はこちら",room,class: "room-btn"%>
       </div>
     </li>

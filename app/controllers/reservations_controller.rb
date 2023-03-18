@@ -6,9 +6,15 @@ class ReservationsController < ApplicationController
   def confirm
     @reservation = Reservation.new(params.require(:reservation).permit(:checkin,:checkout,:user_id,:room_id,:numberpeople))
     @room = Room.find(@reservation.room_id)
-    day = @reservation.checkout - @reservation.checkin
-    @days = day.to_i
-    @cost = @room.price * @reservation.numberpeople * @days
+    @user = User.find(current_user.id)
+    if @reservation.valid?
+      day = @reservation.checkout - @reservation.checkin
+      @days = day.to_i
+      @cost = @room.price * @reservation.numberpeople * @days
+    else
+      flash[:warning] = "予約内容に誤りがあります"
+      render "/rooms/show"
+    end
   end
 
   def create
