@@ -25,6 +25,17 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        name: ユーザー名
+        profile: プロフィール
+      room:
+        name: 施設名
+        introduction: 紹介文
+        address: 住所
+        price: 価格
+      reservations:
+        checkin: チェックイン
+        checkout: チェックアウト
+        numberpeople: 人数
     models:
       user: ユーザー
   devise:
