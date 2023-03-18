@@ -1,31 +1,23 @@
-<div class = "container w-auto">
-  <div class="page-title">
-    <h4>全ての部屋一覧</h4>
+
+  <div class="index-form">
+    <%= form_with url: rooms_path,method: :get, local: true do |f| %>
+      <%= f.text_field :search_area, placeholder: "エリア名を入力",class: "form-group"%>
+      <%= f.text_field :search_keyword, placeholder: "キーワードを入力",class: "form-group"%>
+      <%= f.submit "検索" ,class: "btn btn-primary"%>
+    <% end %>
   </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>施設名</th>
-        <th>住所</th>
-        <th>紹介文</th>
-        <th>料金</th>
-        <th>作成日</th>
-      </tr>
-    </thead>
-
-    <tbody>
+  <p class="data-count"><%= @rooms.count%>件見つかりました。</p>
+  <ul class ="room-list">
     <% @rooms.each do |room| %>
-    <tr>
-      <td><%= room.name %></td>
-      <td><%= room.address %></td>
-      <td><%= room.introduction %></td>
-      <td><%= number_to_currency(room.price, :unit => "￥",:precision => 0) %>~</td>
-      <td><%= room.created_at.strftime("%Y/%m/%d")  %></td>
-      <td><%= link_to "詳細", room %></td>
-    </tr>
-  </tr>
-  <% end %>
-</tbody>
-</table>
-
-</div>
+    <li class="room">
+      <%= image_tag room.image.blank? ? 'default-image' : room.image.url, class: "room-img"%>
+      <div class="room-wapper">
+        <p class="room-name"><%= room.name %></p>
+        <p class="room-address"><%= room.address %></p>
+        <p class="room-introduction"><%= room.introduction %></p>
+        <p class="room-price"><%= number_to_currency(room.price, :unit => "￥",:precision => 0) %>~</p>
+        <%= link_to "詳細はこちら",room,class: "room-btn"%>
+      </div>
+    </li>
+    <% end %>
+  </ul>

@@ -5,4 +5,5 @@ class Room < ApplicationRecord
   validates :address, presence: true
   has_many :reservation
   belongs_to :user
+  mount_uploader :image, ImageUploader
 end
