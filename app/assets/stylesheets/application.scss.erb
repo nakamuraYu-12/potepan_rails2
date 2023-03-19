@@ -1,0 +1,324 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+ @import "bootstrap";
+
+a{
+  color : white;
+  text-decoration: none;
+}
+a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+//ナビゲーションバー
+.navbar{
+  background-color:#1C1D3B;
+}
+.header-container{
+  align-items: center;
+}
+.img-account{
+  max-width: 42px;
+  max-height: 42px;
+}
+
+//トップ画面
+.top-container{
+  height: 750px;
+  width:100%;
+  background-image: url("<%= asset_path('cover-lg.jpeg')%>");
+  background-size: cover;
+  background-position: center;
+  padding-top: 60px;
+}
+.title{
+  text-align: center;
+  font-size:85px;
+  color:white;
+  margin-bottom:45px;
+}
+.search{
+  width:50%;
+  background:hsla(0,0%,100%,.4);
+  margin:auto;
+  padding:30px;
+}
+.top_text_field{
+  height:60px;
+}
+.top_button{
+  margin-top: 15px;
+  background:orange;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:60px;
+}
+.area-container{
+  background-color:#1C1D3B;
+  height:100%;
+}
+.area-container h3{
+  color:white;
+}
+.area{
+  margin-left:auto;
+  margin-right:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  padding-bottom:30px;
+  font-size:20px;
+}
+
+@media screen and (max-width: 1280px){
+.top-container{
+  height: 850px;
+  padding-top: 117px;
+}}
+
+@media screen and (max-width: 960px){
+.top-container{
+  height: 750px;
+  padding-top: 117px;
+}}
+
+@media screen and (max-width: 600px){
+.top-container{
+    background-image: url("<%= asset_path('cover-xs.png')%>");
+    height: 460px;
+    margin-bottom: 80px;
+    padding-top: 60px;
+}}
+
+//rooms/index
+.index-form{
+  margin-top: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.data-count{
+  margin-right: 10px;
+}
+ul{
+  list-style-type:none;
+}
+.room-list{
+  display: flex;
+  flex-wrap: wrap;
+  padding:0 0;
+  width: 100%;
+}
+.room{
+  background: #fff8f1;
+  border-radius: 26px;
+  margin-left: 10px;
+  margin-bottom:50px;
+  width:32%;
+}
+@media screen and (max-width: 960px) {
+    .room {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .room {
+        width:100%
+    }
+}
+.room-img{
+  aspect-ratio: 16/9;
+  border-radius: 26px 26px 0 0;
+  object-fit: cover;
+  width: 100%
+}
+.room-name{
+  color: #767e86;
+  font-size: 25px;
+  margin-bottom: 10px
+}
+.room-address{
+  color: #767e86;
+  font-size: 15px;
+  margin-bottom: 5px
+}
+.room-introduce{
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+.room-price{
+  color: #ff7757;
+  font-family: Lato,sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 39px;
+  margin-bottom: 0
+}
+.room-btn{
+  font-size: 15px;
+  border-radius: 12px;
+  height: 58px;
+  font-size: 18px;
+  background-color: #ff7757;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+//room/show
+.back{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top:20px;
+}
+.back-link{
+  color: #0D73C2;
+  }
+.back-link:hover{
+  color: #0D73C2;
+}
+.room-show{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 10px;
+}
+.show-img{
+  width: 40%;
+}
+.show-body{
+  background-color: #fff8f1;
+  width: 60%;
+  padding-top:30px;
+}
+.name-price{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.show-name{
+  font-size:30px;
+  color: #767e86;
+}
+.show-price{
+  color: #ff7757;
+  font-family: Lato,sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+}
+//show/own
+
+//confirm
+.confirm-title{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.confirm-value-group{
+  display: flex;
+  justify-content: space-between;
+}
+.confirm-label{
+  font-weight: 700px;
+}
+.confirm-price{
+  font-size: 20px;
+  font-weight: 700;
+}
+.confirm-submit{
+  background-color: #ff7757;
+  color: #fff;
+  margin-top: 10px;
+  width: 100%;
+}
+.confirm-cancel{
+  color: #6a6a6a;
+  margin-top: 20px;
+  width: 100%;
+}
+
+
+// user/account
+.container>h2{
+  margin-top: 40px;
+}
+
+.user-container{
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.side-navigation{
+  background-color: #fff;
+  border: 1px solid #dfe2e6;
+  width: 350px;
+  height: fit-content;
+  padding:0 0;
+}
+
+.side-nav-item:first-of-type{
+  border-bottom: 1px solid #dfe2e6;
+}
+.side-nav-item{
+  padding:20px 25px;
+}
+.side-nav-item>a{
+  color: black;
+}
+.side-nav-item.active>a{
+  color:#ff7757;
+}
+
+.side-nav-item.active>a:hover{
+  color: #ff7757;
+}
+.account-info{
+  width:95%;
+}
+.account-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dfe2e6;
+}
+.account-title>a{
+  color:#0071c1;
+}
+
+.account-info-group{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.account-label{
+  width:30%;
+  padding: 0 0;
+  margin: 0 auto;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+}
+.account-value{
+  width:70%;
+  padding: 0 0;
+  margin: 0 0;
+}
